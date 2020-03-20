@@ -31,10 +31,16 @@ app.use(
 );
 
 app.set('views', './source/views');
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.render('index', { nav: ['Books', 'Authors'], title: 'Library' });
+  res.render('index', {
+    nav: [
+      { link: '/books', title: 'Books' },
+      { link: '/authors', title: 'Authors' }
+    ],
+    title: 'Library'
+  });
 });
 
 /**
